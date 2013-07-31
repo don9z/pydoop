@@ -14,6 +14,7 @@ def print_usage():
     print 'Usages:'
     print '\tpydoop cat <path>'
     print '\tpydoop ls <path>'
+    print '\tpydoop lsr <path>'
     print '\tpydoop exists <path>'
     print '\tpydoop rm <path>'
     print '\tpydoop mkdir <path>'
@@ -32,6 +33,8 @@ def pydoop():
         ret = cat(sys.argv[2])
     elif sys.argv[1] == 'ls':
         ret = ls(sys.argv[2])
+    elif sys.argv[1] == 'lsr':
+        ret = lsr(sys.argv[2])
     elif sys.argv[1] == 'exists':
         if exists(sys.argv[2]) == 0:
             print '%s exists!' % sys.argv[2]
@@ -141,6 +144,10 @@ def cat(path):
 
 def ls(path):
     command = '%s -ls %s' % (hadoop_fs, path)
+    return run(command)
+
+def lsr(path):
+    command = '%s -lsr %s' % (hadoop_fs, path)
     return run(command)
 
 def exists(path):

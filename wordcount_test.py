@@ -16,7 +16,7 @@ class WordCountTest(unittest.TestCase):
 
     def test_reducer(self):
         key = 'word'
-        values = ['1', '2', '3', '4']
+        values = [['1'], ['2'], ['3'], ['4']]
         expected = ['word\t10']
 
         result = []

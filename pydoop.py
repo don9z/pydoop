@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 import sys
+import os
 import subprocess
 
-hadoop_home = # Please set hadoop home path
-hadoop_streaming_jar = # Please set hadoop streaming jar path
+# Set hadoop home path here
+hadoop_home = os.environ['HADOOP_HOME']
+# Set hadoop streaming jar path here
+hadoop_streaming_jar = "%s/contrib/streaming/hadoop-streaming-0.20.2-cdh3u2.jar -Dstream.tmpdir=/tmp" % hadoop_home
 
 hadoop_bin = '%s/bin/hadoop' % hadoop_home
 hadoop_fs = '%s fs' % hadoop_bin
